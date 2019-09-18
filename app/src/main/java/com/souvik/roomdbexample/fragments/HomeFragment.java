@@ -16,7 +16,7 @@ import com.souvik.roomdbexample.R;
  */
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
-    private Button BnAddUser, BnReadUser, BnDeleteUser;
+    private Button BnAddUser, BnReadUser, BnDeleteUser, BnUpdateUser;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -37,6 +37,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         BnDeleteUser = view.findViewById(R.id.bn_delete_user);
         BnDeleteUser.setOnClickListener(this);
 
+        BnUpdateUser = view.findViewById(R.id.bn_update_user);
+        BnUpdateUser.setOnClickListener(this);
+
         return view;
     }
 
@@ -54,6 +57,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             case R.id.bn_delete_user:
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new DeleteFragment()).addToBackStack(null).commit();
+                break;
+
+            case R.id.bn_update_user:
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateFragment()).addToBackStack(null).commit();
                 break;
         }
 
